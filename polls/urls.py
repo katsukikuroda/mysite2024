@@ -3,6 +3,4 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
-    # プチ演習
-    path('test', views.test),
 ]
