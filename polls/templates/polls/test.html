@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test.html</title>
+    <link rel="stylesheet" href="{% static 'polls/css/test.css' %}">
+</head>
+<body>
+    <h1>テストページ</h1>
+    <p>名前：{{ name }}</p>
+    <p>年齢：{{ age }}才</p>
+    {% if age >= 18 %}
+        <p>{{ name }}さんは{{ age }}才で成年です</p>
+    {% else %}
+        <p>{{ name }}さんは{{ age }}才で未成年です</p>
+    {% endif %}
+    <p>好物</p>
+    <ol>
+        {% for i in favorite %}
+            <li>{{ i }}</li>
+        {% endfor %}
+    </ol>
+    <a href="{% url 'index' %}">トップページに戻る</a>
+</body>
+</html>
