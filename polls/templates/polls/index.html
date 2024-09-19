@@ -7,7 +7,14 @@
 <body>
     <h1>Polls</h1>
     <p>Polls index page</p>
-    <p>{{ name }}さん、こんにちは！</p>
-    <p>現在の所持金は{{ money }}円です！</p>
+    {% if latest_question_list %}
+        <ul>
+        {% for question in latest_question_list %}
+            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
 </body>
 </html>
