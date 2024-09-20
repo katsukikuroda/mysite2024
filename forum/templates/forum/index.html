@@ -9,10 +9,8 @@
 </head>
 <body>
     <h1>forumページ</h1>
-    {% for i in topics %}
-        {% if i != 'Swift' and i != 'Kotlin' %}
-            <a href="">{{ i }}</a>
-        {% endif %}
+    {% for topic in topics %}
+        <a href="{% url 'forum:forum' topic %}">{{ topic.name }}の掲示板へ</a>
     {% endfor %}
 </body>
 </html>

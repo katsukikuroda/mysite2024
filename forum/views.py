@@ -1,9 +1,15 @@
 from django.shortcuts import render
-
-topic_list = ['HTML', 'CSS', 'JavaScript', 'Python', 'Java', 'C', 'PHP', 'R', 'Swift', 'Kotlin']
+from .models import Topic
 
 def index(request):
+    TOPIC_LIST = Topic.objects.all()
     context = {
-        'topics': topic_list,
+        "topics": TOPIC_LIST,
     }
-    return render(request, 'forum/index.html', context)
+    return render(request, "forum/index.html", context)
+
+def forum(request, topic):
+    context = {
+        "topic": topic,
+    }
+    return render(request, "forum/forum.html", context)
