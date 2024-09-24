@@ -23,7 +23,7 @@
         {% endfor %}
     </ol>
     {# この下がハイパーリンク #}
-    <a href="{% url 'index' %}">トップページに戻る</a>
+    <a href="{% url 'polls:index' %}">トップページに戻る</a>
     {% comment %}
         <p>ダミー段落</p>
         <p>ダミー段落</p>
@@ -31,5 +31,33 @@
         <p>ダミー段落</p>
         <p>ダミー段落</p>
     {% endcomment%}
+    <form action="https://example.com/" method="GET">
+        <div>
+            <p>テキスト</p>
+            <input type="text" name="username">
+            <p>パスワード</p>
+            <input type="password" name="password">
+        </div>
+        <div>
+            <p>ラジオ</p>
+            <label><input type="radio" name="choice" value="A">A</label>
+            <label><input type="radio" name="choice" value="B">B</label>
+        </div>
+        <div>
+            <p>チェックボックス</p>
+            <input type="checkbox" name="check" value="ア">ア
+            <input type="checkbox" name="check" value="イ">イ
+        </div>
+        <div>
+            <p>ファイル</p>
+            <input type="file">    
+            <p>テキストボックス</p>
+            <textarea></textarea>
+        </div>
+        <div>
+            <p>送信ボタン</p>
+            <input type="submit">
+        </div>
+    </form>
 </body>
 </html>
