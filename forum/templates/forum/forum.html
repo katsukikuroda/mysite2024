@@ -7,6 +7,19 @@
 </head>
 <body>
     <h1>各トピックのページ</h1>
-    {{ topic }}
+    <h2>{{ topic.name }}</h2>
+    <table>
+        {% for message in messages %}
+        <tr>
+            <th>{{ message.content }}</th>
+            <th>{{ message.created_at }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="{% url 'forum:forum' topic %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="send_message">
+        <input type="submit" value="投稿">
+    </form>
 </body>
 </html>

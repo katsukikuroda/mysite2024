@@ -12,5 +12,12 @@
     {% for topic in topics %}
         <a href="{% url 'forum:forum' topic %}">{{ topic.name }}の掲示板へ</a>
     {% endfor %}
+
+    {# topic変数対応用 #}
+    {% comment %}
+    {% for topic in topics %}
+        <a href="{% url 'forum:forum' topic_from_index %}">{{ topic.name }}の掲示板へ</a>
+    {% endfor %}
+    {% endcomment %}
 </body>
 </html>
